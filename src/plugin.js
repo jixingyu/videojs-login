@@ -7,8 +7,8 @@ const Plugin = videojs.getPlugin('plugin');
 const defaults = {
   loginText: '观看完整视频请%登录%',
   loginBtn: '立即登录',
-  login: 'aaa',
-  register: '',
+  loginUrl: '',
+  registerUrl: '',
   registerText: '没有账号？请%注册%',
   endText: '需要登录与非账号才能观看完整视频',
 };
