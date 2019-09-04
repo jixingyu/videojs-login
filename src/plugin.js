@@ -5,9 +5,12 @@ const Plugin = videojs.getPlugin('plugin');
 
 // Default options for the plugin.
 const defaults = {
-  format: '观看完整视频请登录%s',
-  login: '',
+  loginText: '观看完整视频请%登录%',
+  loginBtn: '立即登录',
+  login: 'aaa',
   register: '',
+  registerText: '没有账号？请%注册%',
+  endText: '需要登录与非账号才能观看完整视频',
 };
 
 const setupLogin = (player, options) => {
@@ -17,7 +20,7 @@ const setupLogin = (player, options) => {
   
     div.classList.add('vjs-login-content');
   
-    div.innerHTML = options.format.replace(/%s/, '<a href="">' + options.login + '</a>');
+    div.innerHTML = options.loginText.replace(/%/, '<a href="' + options.login + '">').replace(/%/, '</a>');
     videoEl.appendChild(div);
   }
 
