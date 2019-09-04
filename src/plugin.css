@@ -1,0 +1,37 @@
+/**
+ * css for videojs-login
+ * With the default plugins for postcss you can
+ * - @import files, they will be inlined during build
+ * - not worry about browser prefixes, they will be handled
+ * - nest selectors. This follows the css specification that is
+ *   currently out on some browsers. See https://tabatkins.github.io/specs/css-nesting/
+ * - custom properties (aka variables) via the var(--var-name) syntax. See
+ *   https://www.w3.org/TR/css-variables-1/
+ */
+
+ .video-js {
+
+  &.vjs-login {
+    /* This class is added to the video.js element by the plugin by default. */
+    display: block;
+
+    & .vjs-login-content {
+      /**
+       * Note that you have to use calc and multiply by a value with a unit
+       * prepending the unit like `var(--base-font-size)px` or
+       * `calc(10 * var(--base-font-size)em` will NOT work!
+       */
+      opacity: 1;
+      transition: visibility 0.1s, opacity 0.1s;
+      position: absolute;
+      padding: 5px;
+      left: 0;
+      right: 0;
+      font-size: 14px;
+
+      & a {
+        color: #fff;
+      }
+    }
+  }
+}
