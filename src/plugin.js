@@ -10,7 +10,7 @@ const defaults = {
   loginUrl: '',
   registerUrl: '',
   registerText: '没有账号？请%注册%',
-  endText: '需要登录与非账号才能观看完整视频',
+  endText: '观看完整视频请登录',
 };
 
 const setupLogin = (player, options) => {
@@ -20,13 +20,26 @@ const setupLogin = (player, options) => {
   
     div.classList.add('vjs-login-content');
   
-    div.innerHTML = options.loginText.replace(/%/, '<a href="' + options.login + '">').replace(/%/, '</a>');
+    div.innerHTML = options.loginText.replace(/%/, '<a href="' + options.loginUrl + '">').replace(/%/, '</a>');
+
     videoEl.appendChild(div);
   }
 
   if (options.login !== '') {
     player.on('ended', function() {
       // show login & register
+      const videoEl = player.el();
+      const loginMask = document.createElement('div');
+      let registerHtml = '';
+    
+      loginMask.classList.add('vjs-login-mask');
+    
+      registerHtml = options.registerText.replace(/%/, '<a href="' + options.registerUrl + '">').replace(/%/, '</a>')
+  
+      loginMask.innerHTML += '<div class="login-box"><div class="title">'+ options.endText +'</div><div class="login"><a href="' + options.loginUrl + '">' + options.loginBtn + '</a></div><div class="register">' + registerHtml + '</div></div>';
+  
+      videoEl.appendChild(loginMask);
+     
     });
   }
 };
