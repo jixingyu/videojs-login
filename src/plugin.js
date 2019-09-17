@@ -5,11 +5,11 @@ const Plugin = videojs.getPlugin("plugin");
 
 // Default options for the plugin.
 const defaults = {
-  loginText: "观看完整视频请%登录%",
+  loginText: "观看完整视频请%%%登录%%%",
   loginBtn: "立即登录",
   loginUrl: "",
   registerUrl: "",
-  registerText: "没有账号？请%注册%",
+  registerText: "没有账号？请%%%注册%%%",
   endText: "观看完整视频请登录"
 };
 
@@ -21,8 +21,8 @@ const setupLogin = (player, options) => {
     div.classList.add("vjs-login-content");
 
     div.innerHTML = options.loginText
-      .replace(/%/, '<a href="' + options.loginUrl + '">')
-      .replace(/%/, "</a>");
+      .replace(/%%%/, '<a href="' + options.loginUrl + '">')
+      .replace(/%%%/, "</a>");
 
     videoEl.appendChild(div);
   }
@@ -37,8 +37,8 @@ const setupLogin = (player, options) => {
       loginMask.classList.add("vjs-login-mask");
 
       registerHtml = options.registerText
-        .replace(/%/, '<a href="' + options.registerUrl + '">')
-        .replace(/%/, "</a>");
+        .replace(/%%%/, '<a href="' + options.registerUrl + '">')
+        .replace(/%%%/, "</a>");
 
       loginMask.innerHTML +=
         '<div class="login-box"><div class="title">' +
