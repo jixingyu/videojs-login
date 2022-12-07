@@ -69,7 +69,7 @@
     "video.js": "^6 || ^7"
   },
   "devDependencies": {
-    "@videojs/generator-helpers": "~1.0.0",
+    "@videojs/generator-helpers": "~3.2.0",
     "karma": "^4.0.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.0.0",
